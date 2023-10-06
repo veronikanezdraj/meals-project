@@ -1,51 +1,20 @@
-import { Pressable, View, Text, StyleSheet, Platform } from "react-native";
-function CategoryGridTile({ title, color }) {
+import { FlatList } from "react-native";
+import { CATEGORIES } from "../data/dummy-data";
+import CategoryGridTile from "../components/CategoryGridTile";
+
+function renderCategoryItem(itemData) {
   return (
-    <View style={styles.gridItem}>
-      <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? styles.buttonPressed : null,
-        ]}
-        android_ripple={{ color: "#ccc" }}
-      >
-        <View style={[styles.innerContainer, { backgroundColor: color }]}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      </Pressable>
-    </View>
+    <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />
   );
 }
-
-export default CategoryGridTile;
-
-const styles = StyleSheet.create({
-  gridItem: {
-    flex: 1,
-    margin: 16,
-    height: 150,
-    borderRadius: 8,
-    elevation: 4,
-    backgroundColor: "white",
-    shadowColor: "black",
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    overflow: Platform.OS === "android" ? "hidden" : "visible",
-  },
-  button: { flex: 1 },
-  buttonPressed: {
-    opacity: 0.5,
-  },
-  innerContainer: {
-    flex: 1,
-    padding: 16,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-});
+function CategoriesScreen() {
+  return (
+    <FlatList
+      data={CATEGORIES}
+      keyExtractor={(item) => item.id}
+      renderItem={renderCategoryItem}
+      numColumns={2}
+    ></FlatList>
+  );
+}
+export default CategoriesScreen;
