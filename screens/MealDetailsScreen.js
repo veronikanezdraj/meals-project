@@ -11,7 +11,6 @@ import { addFavorite, removeFavorite } from "../store/redux/favorites";
 function MealDetailsScreen({ route, navigation }) {
   // const favoriteMealsCtx = useContext(FavoritesContext);
   const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
-  console.log(favoriteMealIds);
   const dispatch = useDispatch();
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((item) => item.id === mealId);
