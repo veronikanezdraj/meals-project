@@ -1,16 +1,9 @@
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import { useLayoutEffect } from "react";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
-import List from "../components/MealDetail/List";
+import ListItem from "../components/MealDetail/List";
 import IconButton from "../components/IconButton";
 function MealDetailsScreen({ route, navigation }) {
   const mealId = route.params.mealId;
@@ -40,9 +33,12 @@ function MealDetailsScreen({ route, navigation }) {
       <View style={styles.listOuterContainer}>
         <View style={styles.listContainer}>
           <Subtitle>Ingredients</Subtitle>
-          <List data={selectedMeal.ingredients} />
+          <ListItem
+            data={selectedMeal.ingredients}
+            key={selectedMeal.ingredients}
+          />
           <Subtitle>Steps</Subtitle>
-          <List data={selectedMeal.steps} />
+          <ListItem data={selectedMeal.steps} key={selectedMeal.steps} />
         </View>
       </View>
     </ScrollView>

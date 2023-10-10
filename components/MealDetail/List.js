@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-function List({ data }) {
+function ListItem({ data }) {
   return data.map((dataPoint) => (
     <View style={styles.listItem}>
       <Text style={styles.itemText} key={dataPoint}>
@@ -8,7 +8,7 @@ function List({ data }) {
     </View>
   ));
 }
-export default List;
+export default ListItem;
 const styles = StyleSheet.create({
   listItem: {
     borderRadius: 6,
