@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "MealProject",
+    "name": "My Recipe Book",
     "slug": "MealProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,16 +15,25 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.veronikarai.MealProject"
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.veronikarai.MealProject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "14999c61-d460-488f-9385-d4c6f355701f"
+      }
     }
   }
 }
